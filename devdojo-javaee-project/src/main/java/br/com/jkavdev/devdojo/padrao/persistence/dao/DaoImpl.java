@@ -56,6 +56,17 @@ public class DaoImpl<T> implements Dao<T> {
 	}
 
 	/**
+	 * Para consultas sem parametros, informando ou nao a quantidade de registros retornados
+	 */
+	@Override
+	public List<T> findByHqlQueryNoParamaters(String queryId, int maxResults) {
+		String hql = hqlQuery.findValue(queryId);
+		TypedQuery<T> query = manager.createQuery(hql, classe);
+		
+		return maxResults == 0 ? query.getResultList() : query.setMaxResults(maxResults).getResultList();
+	}
+	
+	/**
 	 * Retorna uma consulta de acordo com o id da consulta, seus parametros e
 	 * quantidade de registros
 	 */

@@ -12,4 +12,6 @@ public interface Dao<T> extends Serializable {
 	List<T> listAll();
 
 	List<T> findByHqlQuery(String queryId, List<Object> values, int maxResults);
+
+	List<T> findByHqlQueryNoParamaters(String queryId, int maxResults);
 }

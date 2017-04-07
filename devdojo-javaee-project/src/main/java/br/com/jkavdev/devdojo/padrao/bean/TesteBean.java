@@ -1,5 +1,6 @@
 package br.com.jkavdev.devdojo.padrao.bean;
 
+import static br.com.jkavdev.devdojo.padrao.utils.FacesUtils.addSuccessMessage;
 import static br.com.jkavdev.devdojo.padrao.utils.StringUtils.like;
 
 import java.io.Serializable;
@@ -42,6 +43,12 @@ public class TesteBean implements Serializable {
 		List<Projeto> projetoPeloNomeEId = dao.findByHqlQuery("searchProjectByNameAndId", Arrays.asList(like("Projeto velho"), 1L), 0);
 		
 		System.out.println("Busca pelo nome e id: \n" + projetoPeloNomeEId);
+		
+		addSuccessMessage("sucesso");
+		
+		List<Projeto> projetoSemParametros = dao.findByHqlQueryNoParamaters("searchProject", 0);
+		
+		System.out.println(projetoSemParametros);
 	}
 
 }
