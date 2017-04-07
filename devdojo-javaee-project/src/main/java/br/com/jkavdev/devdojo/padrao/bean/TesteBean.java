@@ -1,6 +1,9 @@
 package br.com.jkavdev.devdojo.padrao.bean;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -29,6 +32,14 @@ public class TesteBean implements Serializable {
 		System.out.println("Nice.......");
 		
 		System.out.println(dao.listAll());
+		
+		List<Projeto> projetoPeloNome = dao.findByHqlQuery("searchProjectByName", Collections.singletonList("Projeto velho"), 0);
+		
+		System.out.println("Busca pelo nome: \n" + projetoPeloNome);
+		
+		List<Projeto> projetoPeloNomeEId = dao.findByHqlQuery("searchProjectByNameAndId", Arrays.asList("Projeto velho", 1L), 0);
+		
+		System.out.println("Busca pelo nome e id: \n" + projetoPeloNomeEId);
 	}
 
 }

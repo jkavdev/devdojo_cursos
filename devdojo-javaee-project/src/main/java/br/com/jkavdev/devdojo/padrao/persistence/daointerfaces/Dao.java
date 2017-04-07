@@ -5,9 +5,11 @@ import java.util.List;
 
 public interface Dao<T> extends Serializable {
 
-	public abstract T save(T entity);
+	T save(T entity);
 
-	public abstract T update(T entity);
+	T update(T entity);
 
-	public abstract List<T> listAll();
+	List<T> listAll();
+
+	List<T> findByHqlQuery(String queryId, List<Object> values, int maxResults);
 }
