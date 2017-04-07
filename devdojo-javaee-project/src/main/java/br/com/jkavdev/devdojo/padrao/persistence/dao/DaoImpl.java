@@ -14,6 +14,7 @@ public class DaoImpl<T> implements Dao<T> {
 	@PersistenceContext
 	private EntityManager manager;
 
+	@SuppressWarnings("unused")
 	private final Class<T> classe;
 
 	public DaoImpl(Class<T> classe, EntityManager manager) {
@@ -23,7 +24,11 @@ public class DaoImpl<T> implements Dao<T> {
 
 	@Override
 	public T save(T entity) {
+		manager.getTransaction().begin();
 		manager.persist(entity);
+		manager.flush();
+		manager.getTransaction().commit();
+		
 		return entity;
 	}
 

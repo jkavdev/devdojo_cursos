@@ -5,13 +5,13 @@
 
 	<persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
 	
-	<provider>org.eclipse.jpa.PersistenceProvider</provider>
-
+	<class>br.com.jkavdev.devdojo.padrao.persistence.model.Projeto</class>
+	
 		<properties>
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/db_dojo_padrao" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/db_dojo_javaee?useSSL=true" />
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.connection.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
-			<property name="hibernate.connection.username" value="jkavdev" />
+			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="99346554" />
 			<property name="hibernate.archive.autodetection" value="class" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
