@@ -32,4 +32,9 @@ public class AbstractEntity implements Serializable {
 		return false;
 	}
 
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "{id=" + id + "}";
+	}
+
 }

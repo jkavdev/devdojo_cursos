@@ -6,6 +6,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.jkavdev.devdojo.padrao.annotations.Transactional;
 import br.com.jkavdev.devdojo.padrao.persistence.daointerfaces.Dao;
 import br.com.jkavdev.devdojo.padrao.persistence.model.Projeto;
 
@@ -18,13 +19,16 @@ public class TesteBean implements Serializable {
 	@Inject
 	private Dao<Projeto> dao;
 
-	public void init() {
+	@Transactional
+	public void init() throws Exception {
 		Projeto projeto = new Projeto();
 		projeto.setNome("Projeto velho");
-		
+
 		dao.save(projeto);
-		
+
 		System.out.println("Nice.......");
+		
+		System.out.println(dao.listAll());
 	}
 
 }
