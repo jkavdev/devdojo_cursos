@@ -1,5 +1,6 @@
 package br.com.jkavdev.devdojo.padrao.persistence.dao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -93,6 +94,17 @@ public class DaoImpl<T> implements Dao<T> {
 
 		// Retorna ou nao uma consulta com registros maximos
 		return maxResults == 0 ? query.getResultList() : query.setMaxResults(maxResults).getResultList();
+	}
+
+	@Override
+	public void remove(T entity) {
+		manager.remove(manager.contains(entity) ? entity : manager.merge(entity));
+		manager.flush();
+	}
+
+	@Override
+	public T findById(Serializable id) {
+		return manager.find(classe, id);
 	}
 
 }

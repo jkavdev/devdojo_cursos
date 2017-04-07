@@ -12,7 +12,14 @@
 		
 		<h:commandButton id="btn" actionListener="#{testeBean.init}" value="Vai manolo" />
 		
+		
 		<h:outputLabel value="#{messages.epa}" for="btn"/>
+		
+		<h:selectOneMenu value="#{testeBean.projeto}" converter="entityConverter">
+			<f:selectItems value="#{testeBean.projetos}" var="projeto" itemLabel="#{projeto.nome}" itemValue="#{projeto}" />
+		</h:selectOneMenu>
+		
+		<h:commandButton id="btn2" actionListener="#{testeBean.mostrarProjeto}" value="Mostra o projeto" />
 	</h:form>
 
 </f:view>

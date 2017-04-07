@@ -16,6 +16,10 @@ public class AbstractEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	public Long getId() {
+		return id;
+	}
 
 	@Override
 	public int hashCode() {

@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -24,14 +25,18 @@ public class TesteBean implements Serializable {
 
 	@Inject
 	private Dao<Projeto> dao;
-
+	
+	private List<Projeto> projetos;
+	
+	private Projeto projeto;
+	
 	@Transactional
-	public void init() throws Exception {
+	public void construct() throws Exception{
 		Projeto projeto = new Projeto();
 		projeto.setNome("Projeto velho");
-
+		
 		dao.save(projeto);
-
+		
 		System.out.println("Nice.......");
 		
 		System.out.println(dao.listAll());
@@ -49,6 +54,23 @@ public class TesteBean implements Serializable {
 		List<Projeto> projetoSemParametros = dao.findByHqlQueryNoParamaters("searchProject", 0);
 		
 		System.out.println(projetoSemParametros);
+	}
+	
+	@PostConstruct
+	public void init() throws Exception {
+		projetos = dao.listAll();
+	}
+	
+	public void mostrarProjeto(){
+		System.out.println(projeto);
+	}
+	
+	public List<Projeto> getProjetos() {
+		return projetos;
+	}
+	
+	public Projeto getProjeto() {
+		return projeto;
 	}
 
 }
