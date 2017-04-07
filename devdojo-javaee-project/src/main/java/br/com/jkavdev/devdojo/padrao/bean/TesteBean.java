@@ -1,5 +1,7 @@
 package br.com.jkavdev.devdojo.padrao.bean;
 
+import static br.com.jkavdev.devdojo.padrao.utils.StringUtils.like;
+
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collections;
@@ -37,7 +39,7 @@ public class TesteBean implements Serializable {
 		
 		System.out.println("Busca pelo nome: \n" + projetoPeloNome);
 		
-		List<Projeto> projetoPeloNomeEId = dao.findByHqlQuery("searchProjectByNameAndId", Arrays.asList("Projeto velho", 1L), 0);
+		List<Projeto> projetoPeloNomeEId = dao.findByHqlQuery("searchProjectByNameAndId", Arrays.asList(like("Projeto velho"), 1L), 0);
 		
 		System.out.println("Busca pelo nome e id: \n" + projetoPeloNomeEId);
 	}

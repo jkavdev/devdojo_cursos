@@ -4,13 +4,14 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-	<f:view>
-	
-		<h:form>
-			<h:commandButton actionListener ="#{testeBean.init}" value="Vai manolo" />
-		</h:form>
-	
-		<h:outputLabel value="Epa, chuta quue é macumba" />
-	</f:view>
+<f:view>
+
+	<h:form>
+		<h:commandButton id="btn" actionListener="#{testeBean.init}" value="Vai manolo" />
+		
+		<h:outputLabel value="#{messages.epa}" for="btn"/>
+	</h:form>
+
+</f:view>
 
 </html>
