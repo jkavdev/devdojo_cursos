@@ -23,7 +23,7 @@ public class ContaTeste {
 	}
 	@Test(expected = IllegalArgumentException.class)
 	public void falhaAoCriarContaInvalidaTest() {
-		Conta contaDoJhonatan = new Conta("213456", "3214", TipoConta.POUPANCA, 1235, null);
+		new Conta("213456", "3214", TipoConta.POUPANCA, 1235, null);
 	}
 	
 	private Pessoa jhonatan() {
