@@ -4,6 +4,9 @@ import entidade.CaixaEletronico;
 import entidade.Conta;
 import entidade.Nota;
 import entidade.Pessoa;
+import entidade.TipoConta;
+import entidade.TipoPessoa;
+
 import org.junit.Test;
 
 import javax.naming.OperationNotSupportedException;
@@ -55,8 +58,8 @@ public class CaixaEletronicoTeste {
     }
 
     private Conta contaDoJhonatan() {
-        Pessoa jhonatan = new Pessoa("Jhonatan", "123456789", 'F');
-        return new Conta("123456", "4567", 'A', 500, jhonatan);
+        Pessoa jhonatan = new Pessoa("Jhonatan", "123456789", TipoPessoa.Fisica);
+        return new Conta("123456", "4567", TipoConta.POUPANCA, 500, jhonatan);
     }
 
     private CaixaEletronico caixaEletronico() {

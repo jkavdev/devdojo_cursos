@@ -7,8 +7,8 @@ import org.junit.Test;
 public class NotaTeste {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void criaUmaNota() {
+		
 	}
 
 }

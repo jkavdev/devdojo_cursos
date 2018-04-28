@@ -1,35 +1,39 @@
 package entidade;
 
+import java.util.Objects;
+
 public class Nota {
 
-	private Integer totalNota;
+	private Integer qtde;
+	private Integer especie;
+
+	public Nota(Integer especie) {
+		setEspecie(especie);
+		this.qtde = 0;
+	}
+	public Nota(Integer especie, Integer qtde) {
+		setEspecie(especie);
+		setQtde(qtde);
+	}
 	
-	private Integer qualNota;
-
-	public Nota(int i, int j) {
-		qualNota = i;
-		totalNota = j;
+	public Integer getEspecie() {
+		return especie;
 	}
-
-	public Integer getTotalNota() {
-		return totalNota;
+	private void setEspecie(Integer especie) {
+		Objects.requireNonNull(especie);
+		this.especie = especie;
 	}
-
-	public void setTotalNota(Integer totalNota) {
-		this.totalNota = totalNota;
+	public Integer getQtde() {
+		return qtde;
 	}
-
-	public Integer getQualNota() {
-		return qualNota;
+	public void setQtde(Integer qtde) {
+		Objects.requireNonNull(especie);
+		this.qtde = qtde;
 	}
-
-	public void setQualNota(Integer qualNota) {
-		this.qualNota = qualNota;
-	}
-
+	
 	@Override
 	public String toString() {
-		return "{tot=" + totalNota + ", not=" + qualNota + "}";
+		return "{Qtde=" + qtde + ", Especie=" + especie + "}";
 	}
 	
 }

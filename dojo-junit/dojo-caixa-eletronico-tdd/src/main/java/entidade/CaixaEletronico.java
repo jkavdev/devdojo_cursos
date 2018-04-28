@@ -73,19 +73,19 @@ public class CaixaEletronico {
 		for (i = 0; i < size; i++) {
 			Nota nota = notas.get(i);
 			int axu = valorSaque;
-			axu = valorSaque - nota.getQualNota().intValue();
+			axu = valorSaque - nota.getEspecie().intValue();
 			if (axu < 0) {
 				continue;
 			} else {
 				int a = 0;
-				if (notasEntregues.containsKey(nota.getQualNota())) {
-					a = notasEntregues.get(nota.getQualNota());
+				if (notasEntregues.containsKey(nota.getEspecie())) {
+					a = notasEntregues.get(nota.getEspecie());
 				}
 				a++;
-				notasEntregues.put(nota.getQualNota(), a);
+				notasEntregues.put(nota.getEspecie(), a);
 				valorSaque = axu;
-				nota.setTotalNota(nota.getTotalNota() - 1);
-				if (nota.getTotalNota() > 0) {
+				nota.setQtde(nota.getQtde() - 1);
+				if (nota.getQtde() > 0) {
 					i--;
 				} else {
 					notas = notas.subList(++i, notas.size());
@@ -110,11 +110,11 @@ public class CaixaEletronico {
 
 		for (int i = 0; i < notas.size(); i++) {
 			Nota nota = notas.get(i);
-			if (valor >= nota.getQualNota().intValue()) {
-				valor -= nota.getQualNota().intValue();
-				notasEntregues.add(new Nota(nota.getQualNota(), 1));
+			if (valor >= nota.getEspecie().intValue()) {
+				valor -= nota.getEspecie().intValue();
+				notasEntregues.add(new Nota(nota.getEspecie(), 1));
 				
-				if (valor >= nota.getQualNota().intValue()) {
+				if (valor >= nota.getEspecie().intValue()) {
 					i--;
 				}
 				if (valor == 0) {
@@ -123,15 +123,15 @@ public class CaixaEletronico {
 			}
 		}
 
-		return notasEntregues.stream().mapToInt(n -> n.getQualNota()).sum();
+		return notasEntregues.stream().mapToInt(n -> n.getEspecie()).sum();
 	}
 
 	private int obterSaldo(List<Nota> notas) {
-		return notas.stream().mapToInt(n -> n.getQualNota() * n.getTotalNota()).sum();
+		return notas.stream().mapToInt(n -> n.getEspecie() * n.getQtde()).sum();
 	}
 
 	private void ordenarNotasPelasMaiores() {
-		Collections.sort(this.notas, Comparator.comparing(Nota::getQualNota).reversed());
+		Collections.sort(this.notas, Comparator.comparing(Nota::getEspecie).reversed());
 	}
 
 	private boolean saldoSuficienteNoCaixa(int valor) {
