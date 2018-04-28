@@ -33,6 +33,16 @@ public class CaixaEletronicoTeste {
 
         assertEquals(122, caixa.realizarSaque(122), 0.0001);
     }
+    
+    @Test
+    public void realizarSaqueNovoTest() throws OperationNotSupportedException {
+    	
+    	CaixaEletronico caixa = caixaEletronico();
+    	
+    	caixa.logarCom(contaDoJhonatan());
+    	
+    	assertEquals(122, caixa.sacar(122), 0.0001);
+    }
 
     @Test(expected = OperationNotSupportedException.class)
     public void naoPermitirSaqueCasoSaqueMaiorQueSaldoTest() throws OperationNotSupportedException {

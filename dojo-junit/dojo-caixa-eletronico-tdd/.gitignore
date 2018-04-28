@@ -1,1 +1,4 @@
 /dojo-caixa-eletronico-tdd.iml
+/target/
+/.classpath
+/.project
