@@ -1,18 +1,19 @@
 package entidade;
 
+import java.util.Objects;
+
 public class Conta {
 
 	private Pessoa pessoa;
 	private String numAgencia;
 	private String numConta;
 	private TipoConta tipo;
-	private Integer saldo;
+	private Integer saldo = 0;
 
-	public Conta(String numConta, String numAgencia, TipoConta tipo, int saldo, Pessoa pessoa) {
+	public Conta(String numConta, String numAgencia, TipoConta tipo, Pessoa pessoa) {
 		setNumConta(numConta);
 		setNumAgencia(numAgencia);
 		setTipo(tipo);
-		this.saldo = saldo;
 		setPessoa(pessoa);
 	}
 
@@ -55,13 +56,25 @@ public class Conta {
 	public Integer getSaldo() {
 		return saldo;
 	}
-	public void setSaldo(Integer saldo) {
-		this.saldo = saldo;
-	}
 
 	@Override
 	public String toString() {
 		return "{pessoa=" + pessoa + ", agencia=" + numAgencia + ", conta=" + numConta + "}";
 	}
-	
+
+	public void depositar(Integer valor) {
+		Objects.requireNonNull(valor);
+        if(valor < 1){
+            throw new IllegalArgumentException("valor invalido");
+        }
+		this.saldo += valor;
+	}
+
+    public void sacar(Integer valor) {
+        Objects.requireNonNull(valor);
+        if(this.saldo < valor){
+            throw new IllegalArgumentException("saldo menor que o saque");
+        }
+        this.saldo -= valor;
+    }
 }

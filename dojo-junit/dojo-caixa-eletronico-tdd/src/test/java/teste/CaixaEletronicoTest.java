@@ -24,7 +24,7 @@ public class CaixaEletronicoTest {
 
         caixa.logarCom(contaDoJhonatan());
 
-        assertEquals(500, caixa.mostrarSaldo(), 0.0001);
+        assertEquals(0, caixa.mostrarSaldo(), 0.0001);
     }
 
     @Test
@@ -36,14 +36,14 @@ public class CaixaEletronicoTest {
 
         assertEquals(122, caixa.realizarSaque(122), 0.0001);
     }
-    
+
     @Test
     public void realizarSaqueNovoTest() throws OperationNotSupportedException {
-    	
+
     	CaixaEletronico caixa = caixaEletronico();
-    	
+
     	caixa.logarCom(contaDoJhonatan());
-    	
+
     	assertEquals(122, caixa.sacar(122), 0.0001);
     }
 
@@ -59,7 +59,7 @@ public class CaixaEletronicoTest {
 
     private Conta contaDoJhonatan() {
         Pessoa jhonatan = new Pessoa("Jhonatan", "123456789", TipoPessoa.FISICA);
-        return new Conta("123456", "4567", TipoConta.POUPANCA, 500, jhonatan);
+        return new Conta("123456", "4567", TipoConta.POUPANCA, jhonatan);
     }
 
     private CaixaEletronico caixaEletronico() {
