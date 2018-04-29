@@ -27,7 +27,7 @@ public class Nota {
 		return qtde;
 	}
 	public void setQtde(Integer qtde) {
-		Objects.requireNonNull(especie);
+		Objects.requireNonNull(qtde);
 		this.qtde = qtde;
 	}
 	

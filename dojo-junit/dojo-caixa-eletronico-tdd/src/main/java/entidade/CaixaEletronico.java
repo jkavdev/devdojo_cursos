@@ -47,7 +47,7 @@ public class CaixaEletronico {
 	}
 
 	public void setNotas(List<Nota> notas) {
-		this.notas = notas;
+		this.notas = new ArrayList<>(notas);
 		ordenarNotasPelasMaiores();
 		this.saldo = obterSaldo(notas);
 	}
@@ -114,6 +114,10 @@ public class CaixaEletronico {
 				valor -= nota.getEspecie().intValue();
 				notasEntregues.add(new Nota(nota.getEspecie(), 1));
 				
+				nota.setQtde(nota.getQtde() - 1);
+				if(nota.getQtde() <= 0) {
+					notas.remove(nota);
+				}
 				if (valor >= nota.getEspecie().intValue()) {
 					i--;
 				}
@@ -131,7 +135,7 @@ public class CaixaEletronico {
 	}
 
 	private void ordenarNotasPelasMaiores() {
-		Collections.sort(this.notas, Comparator.comparing(Nota::getEspecie).reversed());
+		this.notas.sort(Comparator.comparing(Nota::getEspecie).reversed());
 	}
 
 	private boolean saldoSuficienteNoCaixa(int valor) {

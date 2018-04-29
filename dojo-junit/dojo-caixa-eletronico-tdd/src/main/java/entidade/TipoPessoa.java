@@ -2,7 +2,7 @@ package entidade;
 
 public enum TipoPessoa {
 
-	Fisica, 
-	Juridica
+	FISICA,
+	JURIDICA
 
 }

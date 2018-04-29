@@ -8,7 +8,7 @@ public class Pessoa {
 	
 	public Pessoa(String nome) {
 		setNome(nome);
-		this.tipo = TipoPessoa.Fisica;
+		this.tipo = TipoPessoa.FISICA;
 	}
 	public Pessoa(String nome, String numeroCPF, TipoPessoa tipo) {
 		setNome(nome);

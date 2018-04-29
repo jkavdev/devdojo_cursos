@@ -15,7 +15,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class CaixaEletronicoTeste {
+public class CaixaEletronicoTest {
 
     @Test
     public void mostrarSaldoTest() {
@@ -58,7 +58,7 @@ public class CaixaEletronicoTeste {
     }
 
     private Conta contaDoJhonatan() {
-        Pessoa jhonatan = new Pessoa("Jhonatan", "123456789", TipoPessoa.Fisica);
+        Pessoa jhonatan = new Pessoa("Jhonatan", "123456789", TipoPessoa.FISICA);
         return new Conta("123456", "4567", TipoConta.POUPANCA, 500, jhonatan);
     }
 

@@ -7,15 +7,15 @@ import org.junit.Test;
 import entidade.Pessoa;
 import entidade.TipoPessoa;
 
-public class PessoaTeste {
+public class PessoaTest {
 
 	@Test
 	public void criaUmaPessoaFisicaValidaTest() {
-		Pessoa jhonatan = new Pessoa("Jhonatan", "123456", TipoPessoa.Fisica);
+		Pessoa jhonatan = new Pessoa("Jhonatan", "123456", TipoPessoa.FISICA);
 		
 		assertEquals("Jhonatan", jhonatan.getNome());
 		assertEquals("123456", jhonatan.getNumeroCPF());
-		assertEquals(TipoPessoa.Fisica, jhonatan.getTipo());
+		assertEquals(TipoPessoa.FISICA, jhonatan.getTipo());
 	}
 	@Test(expected = IllegalArgumentException.class)
 	public void falhaAoCriarUmaPessoaFisicaInvalidaValidaTest() {

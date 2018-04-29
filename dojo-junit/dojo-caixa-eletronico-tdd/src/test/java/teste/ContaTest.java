@@ -9,7 +9,7 @@ import entidade.Pessoa;
 import entidade.TipoConta;
 import entidade.TipoPessoa;
 
-public class ContaTeste {
+public class ContaTest {
 
 	@Test
 	public void criarContaValidaTest() {
@@ -27,7 +27,7 @@ public class ContaTeste {
 	}
 	
 	private Pessoa jhonatan() {
-        return new Pessoa("Jhonatan", "123456789", TipoPessoa.Fisica);
+        return new Pessoa("Jhonatan", "123456789", TipoPessoa.FISICA);
     }
 
 }
