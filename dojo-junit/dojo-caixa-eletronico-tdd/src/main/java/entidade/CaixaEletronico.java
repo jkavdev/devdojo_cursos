@@ -1,10 +1,6 @@
 package entidade;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.naming.OperationNotSupportedException;
 
@@ -25,12 +21,8 @@ public class CaixaEletronico {
 		setNotas(notas);
 	}
 
-	public Conta getConta() {
-		return conta;
-	}
-
-	public void setConta(Conta conta) {
-		this.conta = conta;
+	public Conta getContaLogada() {
+		return Conta.of(conta);
 	}
 
 	public Integer[] getSaque() {
@@ -56,7 +48,8 @@ public class CaixaEletronico {
 	}
 
 	public void logarCom(Conta conta) {
-		this.conta = conta;
+        Objects.requireNonNull(conta);
+		this.conta = Conta.of(conta);
 	}
 
 	public double realizarSaque(int valor) throws OperationNotSupportedException {

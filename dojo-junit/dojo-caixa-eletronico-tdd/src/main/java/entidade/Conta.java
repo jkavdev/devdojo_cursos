@@ -17,7 +17,11 @@ public class Conta {
 		setPessoa(pessoa);
 	}
 
-	public Pessoa getPessoa() {
+    public static Conta of(Conta conta) {
+		return new Conta(conta.getNumConta(), conta.getNumAgencia(), conta.getTipo(), conta.getPessoa());
+    }
+
+    public Pessoa getPessoa() {
 		return pessoa;
 	}
 	public void setPessoa(Pessoa pessoa) {

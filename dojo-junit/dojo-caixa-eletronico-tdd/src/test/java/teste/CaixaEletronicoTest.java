@@ -57,6 +57,16 @@ public class CaixaEletronicoTest {
         caixa.realizarSaque(403);
     }
 
+    @Test
+    public void logarNoCaixaComUmaContaTest() {
+
+        CaixaEletronico caixa = caixaEletronicoSemNotas();
+
+        caixa.logarCom(contaDoJhonatan());
+
+        assertEquals(contaDoJhonatan().getNumAgencia(), caixa.getContaLogada().getNumAgencia());
+    }
+
     private Conta contaDoJhonatan() {
         Pessoa jhonatan = new Pessoa("Jhonatan", "123456789", TipoPessoa.FISICA);
         return new Conta("123456", "4567", TipoConta.POUPANCA, jhonatan);
