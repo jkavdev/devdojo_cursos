@@ -1,7 +1,6 @@
 package entidade;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -113,7 +112,7 @@ public class CaixaEletronico {
 			if (valor >= nota.getEspecie().intValue()) {
 				valor -= nota.getEspecie().intValue();
 				notasEntregues.add(new Nota(nota.getEspecie(), 1));
-				
+
 				nota.setQtde(nota.getQtde() - 1);
 				if(nota.getQtde() <= 0) {
 					notas.remove(nota);
